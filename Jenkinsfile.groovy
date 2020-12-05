@@ -14,21 +14,22 @@ pipeline {
             }
         }
         stage('Build') {
-            steps {                            
+            steps {
                 sh './mvnw clean package'
             }
 
-            post {                
+            post {
                 always {
-                    junit '**/target/surefire-reports/TEST-*.xml'                    
+                    junit '**/target/surefire-reports/TEST-*.xml'
                     emailext attachLog: true, body: 'Please go to ${BUILD_URL} and verify the build', compressLog: true, subject: "Job \'${JOB_NAME}\' (build ${BUILD_NUMBER}) ${currentBuild.result}", to: 'test@jenkins'
                 }
             }
         }
-        stage('Jacoco publish report')
+        stage('Jacoco publish report') {
             steps {
                 step( [ $class: 'JacocoPublisher' ] )
             }
+        }
         stage('SonarQube analysis') {
             steps {
                 // this groovy method comes from Sonar plugin installed in Jenkins (Manage Jenkins, configure system)
