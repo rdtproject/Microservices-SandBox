@@ -2,7 +2,3 @@
 ```java
 java -Dserver.port=9090 -jar target/microsandbox-0.0.1-SNAPSHOT.jar
 ```
-```javascript
-var s = "JavaScript syntax highlighting";
-alert(s);
-```
