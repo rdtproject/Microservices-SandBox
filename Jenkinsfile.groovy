@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', credentialsId: 'Rdt', url: 'https://github.com/rdtproject/JPA-SandBox.git'
+                git branch: 'main', credentialsId: 'Rdt', url: 'https://github.com/rdtproject/Microservices-SandBox.git'
             }
         }
         stage('Build') {
