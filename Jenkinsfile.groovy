@@ -25,6 +25,10 @@ pipeline {
                 }
             }
         }
+        stage('Jacoco publish report')
+            steps {
+                step( [ $class: 'JacocoPublisher' ] )
+            }
         stage('SonarQube analysis') {
             steps {
                 // this groovy method comes from Sonar plugin installed in Jenkins (Manage Jenkins, configure system)
