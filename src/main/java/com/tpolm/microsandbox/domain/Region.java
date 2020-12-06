@@ -2,10 +2,10 @@ package com.tpolm.microsandbox.domain;
 
 public enum Region {
 
-    Central_Coast("Central Coast"),
-    Southern_California("Southern California"),
-    Northern_California("Northern California"),
-    Varies("Varies");
+    CENTRAL_COAST("Central Coast"),
+    SOUTHERN_CALIFORNIA("Southern California"),
+    NORTHERN_CALIFORNIA("Northern California"),
+    VARIES("Varies");
 
     private String label;
 
