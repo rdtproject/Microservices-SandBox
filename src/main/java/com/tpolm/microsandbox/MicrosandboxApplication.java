@@ -40,7 +40,7 @@ public class MicrosandboxApplication implements CommandLineRunner {
         createTours(importFile);
     }
 
-    private void createTourAllPackages(){
+    private void createTourAllPackages() {
         tourPackageService.createTourPackage("BC", "Backpack Cal");
         tourPackageService.createTourPackage("CC", "California Calm");
         tourPackageService.createTourPackage("CH", "California Hot springs");
@@ -68,34 +68,57 @@ public class MicrosandboxApplication implements CommandLineRunner {
     }
 
     private static class TourFromFile {
-        //fields
+
         private String packageType, title, description, blurb, price, length,
                 bullets, keywords, difficulty, region;
-        //reader
+
+        protected TourFromFile() {
+        }
+
         static List<TourFromFile> read(String fileToImport) throws IOException {
             return new ObjectMapper().setVisibility(FIELD, ANY).
-                    readValue(new FileInputStream(fileToImport), new TypeReference<List<TourFromFile>>() {});
+                    readValue(new FileInputStream(fileToImport), new TypeReference<List<TourFromFile>>() {
+                    });
         }
-        protected TourFromFile(){}
 
-        String getPackageType() { return packageType; }
+        String getPackageType() {
+            return packageType;
+        }
 
-        String getTitle() { return title; }
+        String getTitle() {
+            return title;
+        }
 
-        String getDescription() { return description; }
+        String getDescription() {
+            return description;
+        }
 
-        String getBlurb() { return blurb; }
+        String getBlurb() {
+            return blurb;
+        }
 
-        Integer getPrice() { return Integer.parseInt(price); }
+        Integer getPrice() {
+            return Integer.parseInt(price);
+        }
 
-        String getLength() { return length; }
+        String getLength() {
+            return length;
+        }
 
-        String getBullets() { return bullets; }
+        String getBullets() {
+            return bullets;
+        }
 
-        String getKeywords() { return keywords; }
+        String getKeywords() {
+            return keywords;
+        }
 
-        Difficulty getDifficulty() { return Difficulty.valueOf(difficulty); }
+        Difficulty getDifficulty() {
+            return Difficulty.valueOf(difficulty);
+        }
 
-        Region getRegion() { return Region.findByLabel(region); }
+        Region getRegion() {
+            return Region.findByLabel(region);
+        }
     }
 }
