@@ -40,11 +40,11 @@ public class Tour {
     private TourPackage tourPackage;
 
     @Column
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private Difficulty difficulty;
 
     @Column
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private Region region;
 
     public Tour(String title, String description, String blurb, Integer price, String duration, String bullets,

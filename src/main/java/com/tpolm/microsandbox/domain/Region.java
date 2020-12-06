@@ -5,6 +5,7 @@ public enum Region {
     CENTRAL_COAST("Central Coast"),
     SOUTHERN_CALIFORNIA("Southern California"),
     NORTHERN_CALIFORNIA("Northern California"),
+    NAPA_SONOMA_COUNTRIES("Napa/Sonoma Counties"),
     VARIES("Varies");
 
     private String label;
