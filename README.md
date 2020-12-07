@@ -28,6 +28,12 @@ public class ExampleController {
 	<artifactId>spring-boot-starter-data-rest</artifactId>
 </dependency>
 ```
+To avoid exposing as public API
+```java
+@RepositoryRestResource(exported = false)
+public interface TourRatingRepository extends CrudRepository<TourRating, TourRatingPk>
+```
+
 ## Rest response statuses
 - 201, created
 - 400, bad request
