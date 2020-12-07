@@ -13,6 +13,9 @@ java -Dserver.port=9090 -jar target/microsandbox-0.0.1-SNAPSHOT.jar
 @RestController
 @RequestMapping(path="/examples")
 public class ExampleController {
+	@PostMapping
+	@ResponseStatus(HttpStatus.CREATED)
+	public Example create(@RequestBody Example example)
 }
 ```
 ### Spring Data REST
