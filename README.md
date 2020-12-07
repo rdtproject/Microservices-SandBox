@@ -28,3 +28,7 @@ public class ExampleController {
 	<artifactId>spring-boot-starter-data-rest</artifactId>
 </dependency>
 ```
+## Rest response statuses
+- 201, created
+- 400, bad request
+- 404, not found
