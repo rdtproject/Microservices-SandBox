@@ -20,8 +20,8 @@ public class ExampleController {
 - Enabled by adding dependency to Spring Data Rest in Maven
 - Only for projects / microservices using Spring Data JPA as persistence layes
 ```java
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-rest</artifactId>
-		</dependency>
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-data-rest</artifactId>
+</dependency>
 ```
