@@ -7,6 +7,7 @@ java -Dserver.port=9090 -jar target/microsandbox-0.0.1-SNAPSHOT.jar
 - Http Request -> RestController -> CustomService
 - Enabled using annotation @RestController
 - Any persistence layer can be used, Rest Controller is fowarding http requests to any custom service
+- API launches an algorithmic service, not just a data retrieval
 ### Spring Data REST
 - Http Request -> Spring Data REST -> Spring Data Repository
 - Enabled by adding dependency to Spring Data Rest in Maven
