@@ -6,6 +6,8 @@
 java -Dserver.port=9090 -jar target/microsandbox-0.0.1-SNAPSHOT.jar
 ```
 ## Spring REST Validation
+By default Bean Validation in Rest is returning not really useful response
+This article explains how to provide more useful Rest http respone (which Bean attributes did not pass which validation rules)
 - https://mkyong.com/spring-boot/spring-rest-validation-example/
 
 ## Put vs Patch operation
