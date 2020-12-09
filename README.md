@@ -51,6 +51,27 @@ public String return400(NoSuchElementException ex) {
 	return ex.getMessage();
 }
 ```
+## Path variable vs RequestBody
+Having Rest controller
+```java
+@RequestMapping(path = "/tours/{tourId}/ratings")
+public class TourRatingController {
+}
+```
+- Method is of type Post
+- Method will return response CREATED
+- Parameter tourId is of type PathVariable (part of: @RequestMapping(path = "/tours/{tourId}/ratings"))
+- Parameter ratingDto is of type @RequestBody as this is Dto object passed in the Post request
+- @Validated enforces checking Java Bean Validation rules on the Dto object
+```java
+@PostMapping
+@ResponseStatus(HttpStatus.CREATED)
+public void createTourRating(@PathVariable(value = "tourId") int tourId, @RequestBody @Validated RatingDto ratingDto) {
+Tour tour = verifyTour(tourId);
+tourRatingRepository.save(new TourRating( new TourRatingPk(tour, ratingDto.getCustomerId()),
+	ratingDto.getScore(), ratingDto.getComment()));
+}
+```
 ## Rest response statuses
 - 201, created
 - 400, bad request
