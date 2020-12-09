@@ -36,7 +36,21 @@ To avoid exposing as public API
 @RepositoryRestResource(exported = false)
 public interface TourRatingRepository extends CrudRepository<TourRating, TourRatingPk>
 ```
-
+## Exception handling
+In Rest controller class throw an exception for the scenario as below.
+```java
+private Tour verifyTour(int tourId) throws NoSuchElementException {
+	return tourRepository.findById(tourId).orElseThrow(() -> new NoSuchElementException("Tour does not exist " + tourId));
+}
+```
+In Rest controller class catch any exception of this type and return Rest response status.
+```java
+@ResponseStatus(HttpStatus.NOT_FOUND)
+@ExceptionHandler(NoSuchElementException.class)
+public String return400(NoSuchElementException ex) {
+	return ex.getMessage();
+}
+```
 ## Rest response statuses
 - 201, created
 - 400, bad request
