@@ -10,14 +10,14 @@ public class RatingDto {
     @Max(5)
     private Integer score;
 
-    @Size(max = 6)
+    @Size(max = 16)
     @NotEmpty(message = "Please provide a comment")
     private String comment;
 
     @NotNull
     private Integer customerId;
 
-    RatingDto(TourRating tourRating) {
+    public RatingDto(TourRating tourRating) {
         this(tourRating.getScore(), tourRating.getComment(), tourRating.getPk().getCustomerId());
     }
 
@@ -29,15 +29,15 @@ public class RatingDto {
 
     protected RatingDto() {}
 
-    Integer getScore() {
+    public Integer getScore() {
         return score;
     }
 
-    String getComment() {
+    public String getComment() {
         return comment;
     }
 
-    Integer getCustomerId() {
+    public Integer getCustomerId() {
         return customerId;
     }
 
