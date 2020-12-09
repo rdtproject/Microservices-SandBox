@@ -8,6 +8,10 @@ java -Dserver.port=9090 -jar target/microsandbox-0.0.1-SNAPSHOT.jar
 ## Spring REST Validation
 - https://mkyong.com/spring-boot/spring-rest-validation-example/
 
+## Put vs Patch operation
+- Put: all attributes are updated
+- Patch: only selected attributes are updated
+
 ## Spring MVC vs Spring Data REST
 ### Spring MVC
 - Http Request -> RestController -> CustomService
