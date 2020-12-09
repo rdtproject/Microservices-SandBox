@@ -10,7 +10,7 @@ public class RatingDto {
     @Max(5)
     private Integer score;
 
-    @Size(max = 255)
+    @Size(max = 6)
     @NotEmpty(message = "Please provide a comment")
     private String comment;
 
