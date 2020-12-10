@@ -9,7 +9,13 @@ java -Dserver.port=9090 -jar target/microsandbox-0.0.1-SNAPSHOT.jar
 By default Bean Validation in Rest is returning not really useful response
 This article explains how to provide more useful Rest http respone (which Bean attributes did not pass which validation rules)
 - https://mkyong.com/spring-boot/spring-rest-validation-example/
-
+To enable Rest Bean Validation, Maven dependency:
+```java
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-validation</artifactId>
+</dependency>
+```
 ## Put vs Patch operation
 - Put: all attributes are updated
 - Patch: only selected attributes are updated
