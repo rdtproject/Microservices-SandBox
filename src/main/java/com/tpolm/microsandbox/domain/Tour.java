@@ -35,7 +35,6 @@ public class Tour {
     @Column
     private String keywords;
 
-
     @ManyToOne
     private TourPackage tourPackage;
 
