@@ -1,5 +1,5 @@
 ## DevOps topics
-### How Jacoco code coverage works and what is the correlation with ASM library
+### How Jacoco code coverage works and what is the correlation with ASM code manipulation framework
 - https://www.baeldung.com/jacoco
 ### How to run Spring Boot app from command line
 ```java
