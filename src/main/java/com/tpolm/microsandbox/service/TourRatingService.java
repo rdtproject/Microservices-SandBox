@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 import java.util.OptionalDouble;
 
 @Service
@@ -29,6 +30,14 @@ public class TourRatingService {
     public void createNew(int tourId, Integer customerId, Integer score, String comment) throws NoSuchElementException {
         tourRatingRepository.save(new TourRating(verifyTour(tourId), customerId,
                 score, comment));
+    }
+
+    public Optional<TourRating> lookupRatingById(int id)  {
+        return tourRatingRepository.findById(id);
+    }
+
+    public List<TourRating> lookupAll()  {
+        return tourRatingRepository.findAll();
     }
 
     public Page<TourRating> lookupRatings(int tourId, Pageable pageable) throws NoSuchElementException  {

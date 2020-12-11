@@ -35,13 +35,6 @@ public class TourRatingController {
         tourRatingService.createNew(tourId, ratingDto.getCustomerId(), ratingDto.getScore(), ratingDto.getComment());
     }
 
-    /**
-     * Create Several Tour Ratings for one tour, score and several customers.
-     *
-     * @param tourId
-     * @param score
-     * @param customers
-     */
     @PostMapping("/{score}")
     @ResponseStatus(HttpStatus.CREATED)
     public void createManyTourRatings(@PathVariable(value = "tourId") int tourId,
@@ -50,13 +43,6 @@ public class TourRatingController {
         tourRatingService.rateMany(tourId, score, customers);
     }
 
-    /**
-     * Lookup a the Ratings for a tour.
-     *
-     * @param tourId
-     * @param pageable
-     * @return
-     */
     @GetMapping
     public Page<RatingDto> getAllRatingsForTour(@PathVariable(value = "tourId") int tourId, Pageable pageable) {
         Page<TourRating> tourRatingPage = tourRatingService.lookupRatings(tourId, pageable);
@@ -65,74 +51,36 @@ public class TourRatingController {
         return new PageImpl<RatingDto>(ratingDtoList, pageable, tourRatingPage.getTotalPages());
     }
 
-    /**
-     * Calculate the average Score of a Tour.
-     *
-     * @param tourId
-     * @return Tuple of "average" and the average value.
-     */
     @GetMapping("/average")
     public AbstractMap.SimpleEntry<String, Double> getAverage(@PathVariable(value = "tourId") int tourId) {
         return new AbstractMap.SimpleEntry<>("average", tourRatingService.getAverageScore(tourId));
     }
 
-    /**
-     * Update score and comment of a Tour Rating
-     *
-     * @param tourId
-     * @param ratingDto
-     * @return The modified Rating DTO.
-     */
     @PutMapping
     public RatingDto updateWithPut(@PathVariable(value = "tourId") int tourId, @RequestBody @Validated RatingDto ratingDto) {
         return toDto(tourRatingService.update(tourId, ratingDto.getCustomerId(),
                 ratingDto.getScore(), ratingDto.getComment()));
     }
-    /**
-     * Update score or comment of a Tour Rating
-     *
-     * @param tourId
-     * @param ratingDto
-     * @return The modified Rating DTO.
-     */
+
     @PatchMapping
     public RatingDto updateWithPatch(@PathVariable(value = "tourId") int tourId, @RequestBody @Validated RatingDto ratingDto) {
         return toDto(tourRatingService.updateSome(tourId, ratingDto.getCustomerId(),
                 ratingDto.getScore(), ratingDto.getComment()));
     }
 
-    /**
-     * Delete a Rating of a tour made by a customer
-     *
-     * @param tourId
-     * @param customerId
-     */
     @DeleteMapping("/{customerId}")
     public void delete(@PathVariable(value = "tourId") int tourId, @PathVariable(value = "customerId") int customerId) {
         tourRatingService.delete(tourId, customerId);
     }
 
-    /**
-     * Convert the TourRating entity to a RatingDto
-     *
-     * @param tourRating
-     * @return RatingDto
-     */
     private RatingDto toDto(TourRating tourRating) {
         return new RatingDto(tourRating.getScore(), tourRating.getComment(), tourRating.getCustomerId());
     }
 
-    /**
-     * Exception handler if NoSuchElementException is thrown in this Controller
-     *
-     * @param ex
-     * @return Error message String.
-     */
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(NoSuchElementException.class)
     public String return400(NoSuchElementException ex) {
         return ex.getMessage();
-
     }
 
 }

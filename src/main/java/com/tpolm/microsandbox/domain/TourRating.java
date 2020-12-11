@@ -23,6 +23,10 @@ public class TourRating {
     @Column
     private String comment;
 
+    public TourRating() {
+        super();
+    }
+
     public TourRating(Tour tour, Integer customerId, Integer score, String comment) {
         this.tour = tour;
         this.customerId = customerId;
@@ -46,6 +50,14 @@ public class TourRating {
             case 5:return "Great";
             default: return score.toString();
         }
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getScore() {

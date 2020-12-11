@@ -1,8 +1,9 @@
 package com.tpolm.microsandbox.web;
 
+import org.springframework.hateoas.RepresentationModel;
 import javax.validation.constraints.*;
 
-public class RatingDto {
+public class RatingDto extends RepresentationModel<RatingDto> {
 
     @Min(0)
     @Max(5)
