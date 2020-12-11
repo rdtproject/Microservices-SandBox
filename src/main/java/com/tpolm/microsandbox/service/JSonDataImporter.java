@@ -22,25 +22,10 @@ public class JSonDataImporter {
     private String importFile;
 
     @Autowired
-    private TourPackageService tourPackageService;
-    @Autowired
     private TourService tourService;
 
     public void importDataFromJson() throws IOException {
-        createTourAllPackages();
         createTours(importFile);
-    }
-
-    private void createTourAllPackages() {
-        tourPackageService.createTourPackage("BC", "Backpack Cal");
-        tourPackageService.createTourPackage("CC", "California Calm");
-        tourPackageService.createTourPackage("CH", "California Hot springs");
-        tourPackageService.createTourPackage("CY", "Cycle California");
-        tourPackageService.createTourPackage("DS", "From Desert to Sea");
-        tourPackageService.createTourPackage("KC", "Kids California");
-        tourPackageService.createTourPackage("NW", "Nature Watch");
-        tourPackageService.createTourPackage("SC", "Snowboard Cali");
-        tourPackageService.createTourPackage("TC", "Taste of California");
     }
 
     private void createTours(String fileToImport) throws IOException {

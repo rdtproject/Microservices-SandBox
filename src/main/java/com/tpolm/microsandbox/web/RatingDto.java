@@ -1,7 +1,5 @@
 package com.tpolm.microsandbox.web;
 
-import com.tpolm.microsandbox.domain.TourRating;
-
 import javax.validation.constraints.*;
 
 public class RatingDto {
@@ -10,18 +8,13 @@ public class RatingDto {
     @Max(5)
     private Integer score;
 
-    @Size(max = 16)
-    @NotEmpty(message = "Please provide a comment")
+    @Size(max = 255)
     private String comment;
 
     @NotNull
     private Integer customerId;
 
-    public RatingDto(TourRating tourRating) {
-        this(tourRating.getScore(), tourRating.getComment(), tourRating.getPk().getCustomerId());
-    }
-
-    private RatingDto(Integer score, String comment, Integer customerId) {
+    public RatingDto(Integer score, String comment, Integer customerId) {
         this.score = score;
         this.comment = comment;
         this.customerId = customerId;
