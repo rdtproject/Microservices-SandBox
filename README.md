@@ -5,6 +5,10 @@
 ```java
 java -Dserver.port=9090 -jar target/microsandbox-0.0.1-SNAPSHOT.jar
 ```
+## HATEOAS 1.0
+- https://www.baeldung.com/spring-hateoas-tutorial
+- https://docs.spring.io/spring-hateoas/docs/current/reference/html/#reference
+
 ## Spring REST Validation
 By default Bean Validation in Rest is returning not really useful response
 This article explains how to provide more useful Rest http respone (which Bean attributes did not pass which validation rules)
