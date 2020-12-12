@@ -32,7 +32,9 @@ http://localhost:8080/tours/1/ratings?page=0&size=2
 ```
 ```java
     @GetMapping
-    public PagedModel<RatingDto> getAllRatingsForTour(@PathVariable(value = "tourId") int tourId, Pageable pageable, PagedResourcesAssembler pagedAssembler) {
+    public PagedModel<RatingDto> getAllRatingsForTour(@PathVariable(value = "tourId") int tourId, Pageable pageable, 
+    		PagedResourcesAssembler pagedAssembler) {
+		
         Page<TourRating> tourRatingPage = tourRatingService.lookupRatings(tourId, pageable);
         return pagedAssembler.toModel(tourRatingPage, ratingAssembler);
     }
