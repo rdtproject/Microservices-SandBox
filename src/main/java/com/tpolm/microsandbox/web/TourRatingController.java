@@ -51,7 +51,7 @@ public class TourRatingController {
 
     @GetMapping
     public PagedModel<RatingDto> getAllRatingsForTour(@PathVariable(value = "tourId") int tourId, Pageable pageable,
-                                                      PagedResourcesAssembler pagedAssembler) {
+                                                      PagedResourcesAssembler<TourRating> pagedAssembler) {
         LOGGER.info("GET /tours/{}/ratings", tourId);
         Page<TourRating> tourRatingPage = tourRatingService.lookupRatings(tourId, pageable);
         return pagedAssembler.toModel(tourRatingPage, ratingAssembler);
