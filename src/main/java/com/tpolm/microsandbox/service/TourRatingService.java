@@ -96,7 +96,7 @@ public class TourRatingService {
         );
     }
 
-    private TourRating verifyTourRating(int tourId, int customerId) {
+    TourRating verifyTourRating(int tourId, int customerId) {
         return tourRatingRepository.findByTourIdAndCustomerId(tourId, customerId).orElseThrow(() ->
                 new NoSuchElementException("Tour-Rating pair for request("
                         + tourId + " for customer" + customerId));
