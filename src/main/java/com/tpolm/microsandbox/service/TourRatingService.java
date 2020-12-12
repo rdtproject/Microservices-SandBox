@@ -90,7 +90,7 @@ public class TourRatingService {
         });
     }
 
-    private Tour verifyTour(int tourId) throws NoSuchElementException {
+    private Tour verifyTour(int tourId) {
         return tourRepository.findById(tourId).orElseThrow(() ->
                 new NoSuchElementException("Tour does not exist " + tourId)
         );

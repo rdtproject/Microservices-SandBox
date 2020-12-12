@@ -2,6 +2,7 @@ package com.tpolm.microsandbox.web;
 
 import org.springframework.hateoas.RepresentationModel;
 import javax.validation.constraints.*;
+import java.util.Objects;
 
 public class RatingDto extends RepresentationModel<RatingDto> {
 
@@ -47,4 +48,19 @@ public class RatingDto extends RepresentationModel<RatingDto> {
         this.customerId = customerId;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        RatingDto ratingDto = (RatingDto) o;
+        return Objects.equals(score, ratingDto.score) &&
+                Objects.equals(comment, ratingDto.comment) &&
+                Objects.equals(customerId, ratingDto.customerId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), score, comment, customerId);
+    }
 }
