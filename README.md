@@ -1,3 +1,6 @@
+## Next courses
+- https://courses.in28minutes.com/courses/in28minutes-course-guide/lectures/8919269
+
 ## DevOps topics
 ### How Jacoco code coverage works and what is the correlation with ASM code manipulation framework
 - https://www.baeldung.com/jacoco
