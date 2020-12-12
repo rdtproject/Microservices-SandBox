@@ -9,6 +9,36 @@ java -Dserver.port=9090 -jar target/microsandbox-0.0.1-SNAPSHOT.jar
 - https://www.baeldung.com/spring-hateoas-tutorial
 - https://docs.spring.io/spring-hateoas/docs/current/reference/html/#reference
 
+### RESTful example http calls
+Testing of HATEOAS feature (RatingController)
+```java
+http://localhost:8080/ratings
+```
+```java
+@GetMapping
+public CollectionModel<RatingDto> getAll() {
+	return assembler.toCollectionModel(tourRatingService.lookupAll());
+}
+
+@GetMapping("/{id}")
+public RatingDto getRating(@PathVariable("id") Integer id) {
+	return assembler.toModel(tourRatingService.lookupRatingById(id)
+	  	.orElseThrow(() -> new NoSuchElementException("Rating " + id + " not found"))
+)
+```
+Testing of HATEOAS plus paging feature
+```java
+http://localhost:8080/tours/1/ratings?page=0&size=2
+```
+```java
+    @GetMapping
+    public PagedModel<RatingDto> getAllRatingsForTour(@PathVariable(value = "tourId") int tourId, Pageable pageable, 
+    		PagedResourcesAssembler pagedAssembler) {
+		
+        Page<TourRating> tourRatingPage = tourRatingService.lookupRatings(tourId, pageable);
+        return pagedAssembler.toModel(tourRatingPage, ratingAssembler);
+    }
+```
 ## Spring REST Validation
 By default Bean Validation in Rest is returning not really useful response
 This article explains how to provide more useful Rest http respone (which Bean attributes did not pass which validation rules)
