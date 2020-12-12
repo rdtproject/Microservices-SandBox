@@ -4,26 +4,27 @@ import com.tpolm.microsandbox.domain.TourRating;
 import com.tpolm.microsandbox.service.TourRatingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PagedResourcesAssembler;
+import org.springframework.hateoas.PagedModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.AbstractMap;
-import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(path = "/tours/{tourId}/ratings")
 public class TourRatingController {
 
     private TourRatingService tourRatingService;
+    private RatingAssembler ratingAssembler;
 
     @Autowired
-    public TourRatingController(TourRatingService tourRatingService) {
+    public TourRatingController(TourRatingService tourRatingService, RatingAssembler ratingAssembler) {
         this.tourRatingService = tourRatingService;
+        this.ratingAssembler = ratingAssembler;
     }
 
     protected TourRatingController() {
@@ -44,11 +45,10 @@ public class TourRatingController {
     }
 
     @GetMapping
-    public Page<RatingDto> getAllRatingsForTour(@PathVariable(value = "tourId") int tourId, Pageable pageable) {
+    public PagedModel<RatingDto> getAllRatingsForTour(@PathVariable(value = "tourId") int tourId, Pageable pageable,
+                                                      PagedResourcesAssembler pagedAssembler) {
         Page<TourRating> tourRatingPage = tourRatingService.lookupRatings(tourId, pageable);
-        List<RatingDto> ratingDtoList = tourRatingPage.getContent()
-                .stream().map(tourRating -> toDto(tourRating)).collect(Collectors.toList());
-        return new PageImpl<RatingDto>(ratingDtoList, pageable, tourRatingPage.getTotalPages());
+        return pagedAssembler.toModel(tourRatingPage, ratingAssembler);
     }
 
     @GetMapping("/average")

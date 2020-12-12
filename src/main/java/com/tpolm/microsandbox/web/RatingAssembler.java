@@ -11,11 +11,6 @@ import org.springframework.stereotype.Component;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
-/**
- * Rating Assembler, convert TourRating to a Hateoas Supported Rating class
- * <p>
- * Created by maryellenbowman.
- */
 @Component
 public class RatingAssembler extends RepresentationModelAssemblerSupport<TourRating, RatingDto> {
 
