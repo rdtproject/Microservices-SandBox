@@ -74,14 +74,14 @@ public class TourRatingService {
     }
 
     public Double getAverageScore(int tourId)  throws NoSuchElementException  {
-        LOGGER.info("Get average score of tour {} by customers {}", tourId);
+        LOGGER.info("Get average score of tour {}", tourId);
         List<TourRating> ratings = tourRatingRepository.findByTourId(verifyTour(tourId).getId());
-        OptionalDouble average = ratings.stream().mapToInt((rating) -> rating.getScore()).average();
+        OptionalDouble average = ratings.stream().mapToInt(TourRating::getScore).average();
         return average.isPresent() ? average.getAsDouble():null;
     }
 
     public void rateMany(int tourId,  int score, Integer[] customers) {
-        LOGGER.info("Rate tour {} by customers {}", tourId, Arrays.asList(customers).toString());
+        LOGGER.info("Rate tour {} by customers {}", tourId, customers);
         tourRepository.findById(tourId).ifPresent(tour -> {
             for (Integer c : customers) {
                 LOGGER.debug("Attempt to create Tour Rating for customer {}", c);
