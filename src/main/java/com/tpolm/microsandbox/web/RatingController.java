@@ -32,7 +32,7 @@ public class RatingController {
 
     @GetMapping("/{id}")
     public RatingDto getRating(@PathVariable("id") Integer id) {
-        LOGGER.info("GET /ratings/{id}", id);
+        LOGGER.info("GET /ratings/{}", id);
         return assembler.toModel(tourRatingService.lookupRatingById(id)
                 .orElseThrow(() -> new NoSuchElementException("Rating " + id + " not found"))
         );
