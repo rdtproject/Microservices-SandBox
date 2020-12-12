@@ -27,7 +27,7 @@ public class TourRatingService {
         this.tourRepository = tourRepository;
     }
 
-    public void createNew(int tourId, Integer customerId, Integer score, String comment) throws NoSuchElementException {
+    public void createNew(int tourId, Integer customerId, Integer score, String comment) {
         LOGGER.info("Create Rating for tour {} of customers {}", tourId, customerId);
         tourRatingRepository.save(new TourRating(verifyTour(tourId), customerId,
                 score, comment));
@@ -42,12 +42,12 @@ public class TourRatingService {
         return tourRatingRepository.findAll();
     }
 
-    public Page<TourRating> lookupRatings(int tourId, Pageable pageable) throws NoSuchElementException  {
+    public Page<TourRating> lookupRatings(int tourId, Pageable pageable) {
         LOGGER.info("Lookup Rating for tour {}", tourId);
         return tourRatingRepository.findByTourId(verifyTour(tourId).getId(), pageable);
     }
 
-    public TourRating update(int tourId, Integer customerId, Integer score, String comment) throws NoSuchElementException {
+    public TourRating update(int tourId, Integer customerId, Integer score, String comment) {
         LOGGER.info("Update all of Rating for tour {} of customers {}", tourId, customerId);
         TourRating rating = verifyTourRating(tourId, customerId);
         rating.setScore(score);
@@ -55,7 +55,7 @@ public class TourRatingService {
         return tourRatingRepository.save(rating);
     }
 
-    public TourRating updateSome(int tourId, Integer customerId, Integer score, String comment) throws NoSuchElementException {
+    public TourRating updateSome(int tourId, Integer customerId, Integer score, String comment) {
         LOGGER.info("Update some of Rating for tour {} of customers {}", tourId, customerId);
         TourRating rating = verifyTourRating(tourId, customerId);
         if (score != null) {
@@ -67,13 +67,13 @@ public class TourRatingService {
         return tourRatingRepository.save(rating);
     }
 
-    public void delete(int tourId, Integer customerId) throws NoSuchElementException {
+    public void delete(int tourId, Integer customerId)  {
         LOGGER.info("Delete Rating for tour {} and customer {}", tourId, customerId);
         TourRating rating = verifyTourRating(tourId, customerId);
         tourRatingRepository.delete(rating);
     }
 
-    public Double getAverageScore(int tourId)  throws NoSuchElementException  {
+    public Double getAverageScore(int tourId) {
         LOGGER.info("Get average score of tour {}", tourId);
         List<TourRating> ratings = tourRatingRepository.findByTourId(verifyTour(tourId).getId());
         OptionalDouble average = ratings.stream().mapToInt(TourRating::getScore).average();
@@ -96,7 +96,7 @@ public class TourRatingService {
         );
     }
 
-    private TourRating verifyTourRating(int tourId, int customerId) throws NoSuchElementException {
+    private TourRating verifyTourRating(int tourId, int customerId) {
         return tourRatingRepository.findByTourIdAndCustomerId(tourId, customerId).orElseThrow(() ->
                 new NoSuchElementException("Tour-Rating pair for request("
                         + tourId + " for customer" + customerId));
