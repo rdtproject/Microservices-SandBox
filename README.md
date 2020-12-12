@@ -39,6 +39,12 @@ http://localhost:8080/tours/1/ratings?page=0&size=2
         return pagedAssembler.toModel(tourRatingPage, ratingAssembler);
     }
 ```
+## Logging
+Testing if logging works correct
+```java
+http://localhost:8080/tours/3/ratings/3?customers=4,5,6,7,3,8
+```
+After executing twice - constrant error
 ## Spring REST Validation
 By default Bean Validation in Rest is returning not really useful response
 This article explains how to provide more useful Rest http respone (which Bean attributes did not pass which validation rules)
