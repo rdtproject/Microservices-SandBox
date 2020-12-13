@@ -19,6 +19,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import static org.mockito.Mockito.when;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -66,6 +67,16 @@ public class RatingControllerTest {
                 });
         assertThat(response.getStatusCode(), is(HttpStatus.OK));
         assertThat(response.getBody().size(), is(3));
+    }
+
+    @Test
+    public void getOneElement() {
+        when(tourRatingServiceMock.lookupRatingById(RATING_ID)).thenReturn(Optional.of(tourRatingMock));
+        ResponseEntity<RatingDto> response = restTemplate.getForEntity(RATINGS_URL + "/" + RATING_ID, RatingDto.class);
+        assertThat(response.getStatusCode(), is(HttpStatus.OK));
+        assertThat(response.getBody().getCustomerId(), is(CUSTOMER_ID));
+        assertThat(response.getBody().getComment(), is(COMMENT));
+        assertThat(response.getBody().getScore(), is(SCORE));
     }
 
 }
