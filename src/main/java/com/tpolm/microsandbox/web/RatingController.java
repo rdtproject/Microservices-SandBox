@@ -4,10 +4,10 @@ import com.tpolm.microsandbox.service.TourRatingService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.hateoas.CollectionModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
 import java.util.NoSuchElementException;
 
 @RestController
@@ -25,9 +25,9 @@ public class RatingController {
     }
 
     @GetMapping
-    public CollectionModel<RatingDto> getAll() {
+    public Collection<RatingDto> getAll() {
         LOGGER.info("GET /ratings");
-        return assembler.toCollectionModel(tourRatingService.lookupAll());
+        return assembler.toCollectionModel(tourRatingService.lookupAll()).getContent();
     }
 
     @GetMapping("/{id}")
