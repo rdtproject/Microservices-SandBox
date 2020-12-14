@@ -1,6 +1,7 @@
 package com.tpolm.microsandbox.web;
 
 import com.tpolm.microsandbox.service.TourRatingService;
+import io.swagger.annotations.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 import java.util.NoSuchElementException;
 
+@Api("API to collect all ratings")
 @RestController
 @RequestMapping(path = "/ratings")
 public class RatingController {
@@ -25,13 +27,18 @@ public class RatingController {
     }
 
     @GetMapping
+    @ApiOperation("Find all ratings")
+    @ApiResponse(code = 200, message = "OK")
     public Collection<RatingDto> getAll() {
         LOGGER.info("GET /ratings");
         return assembler.toCollectionModel(tourRatingService.lookupAll()).getContent();
     }
 
     @GetMapping("/{id}")
-    public RatingDto getRating(@PathVariable("id") Integer id) {
+    @ApiOperation("Find ratings by id")
+    @ApiResponses({@ApiResponse(code = 200, message = "OK"), @ApiResponse(code = 404, message = "Rating not found")})
+    public RatingDto getRating(@ApiParam(value = "Rating identifier - custom parameter description")
+                                   @PathVariable("id") Integer id) {
         LOGGER.info("GET /ratings/{}", id);
         return assembler.toModel(tourRatingService.lookupRatingById(id)
                 .orElseThrow(() -> new NoSuchElementException("Rating " + id + " not found"))
