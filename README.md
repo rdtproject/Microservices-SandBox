@@ -8,6 +8,7 @@
 - Spring Boot app from command line: java -Dserver.port=9090 -jar target/microsandbox-0.0.1-SNAPSHOT.jar
 - Swagger: http://localhost:8081/swagger-ui/
 - MailHog: http://192.168.1.2:32778/
+- Jenkins: http://192.168.1.2:8090/
 
 ## HATEOAS 1.0
 - https://www.baeldung.com/spring-hateoas-tutorial
