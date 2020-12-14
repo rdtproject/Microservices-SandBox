@@ -4,10 +4,12 @@
 ## DevOps topics
 ### How Jacoco code coverage works and what is the correlation with ASM code manipulation framework
 - https://www.baeldung.com/jacoco
-### How to run Spring Boot app from command line
-```java
-java -Dserver.port=9090 -jar target/microsandbox-0.0.1-SNAPSHOT.jar
-```
+## How to run
+- Spring Boot app from command line: java -Dserver.port=9090 -jar target/microsandbox-0.0.1-SNAPSHOT.jar
+- Swagger: http://localhost:8081/swagger-ui/
+- MailHog: http://192.168.1.2:32778/
+- Jenkins: http://192.168.1.2:8090/
+
 ## HATEOAS 1.0
 - https://www.baeldung.com/spring-hateoas-tutorial
 - https://docs.spring.io/spring-hateoas/docs/current/reference/html/#reference
