@@ -1,5 +1,18 @@
-## Next courses
+## Next courses, ideas
 - https://courses.in28minutes.com/courses/in28minutes-course-guide/lectures/8919269
+- https://www.udemy.com/course/microservices-ddd/
+- https://codeburst.io/improve-performance-of-java-microservices-with-a-few-actionable-tips-dcacbfb061dc
+- https://opensource.com/article/20/8/kubernetes-raspberry-pi
+
+## Frameworks for Microservices
+- https://micronaut.io/
+- https://quarkus.io/
+- https://www.elastic.co/what-is/elk-stack
+
+## Quick apps in JS from GitHub pages
+- https://labmonkey.github.io/angularjs-pdf-generator/
+- https://dev.to/yuribenjamin/how-to-deploy-react-app-in-github-pages-2a1f
+- https://grafana.com/, for JS data visualisation
 
 ## DevOps topics
 ### How Jacoco code coverage works and what is the correlation with ASM code manipulation framework
