@@ -10,6 +10,7 @@
 ## Quick apps in JS from HitHub pages
 - https://labmonkey.github.io/angularjs-pdf-generator/
 - https://dev.to/yuribenjamin/how-to-deploy-react-app-in-github-pages-2a1f
+- https://grafana.com/, for JS data visualisation
 
 ## DevOps topics
 ### How Jacoco code coverage works and what is the correlation with ASM code manipulation framework
