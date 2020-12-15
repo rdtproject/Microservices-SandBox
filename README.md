@@ -11,7 +11,8 @@
 - Jenkins: http://192.168.1.2:8090/
 - Create MySql Docker image: 
 ```console
-sudo docker run  --detach   --name microsandbox-mysql -p 6604:3306 -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=microsandbox -e MYSQL_USER=rdt -e MYSQL_PASSWORD=rdt_pass -d mysql
+sudo docker run  --detach   --name microsandbox-mysql -p 6604:3306 -e MYSQL_ROOT_PASSWORD=password
+-e MYSQL_DATABASE=microsandbox -e MYSQL_USER=rdt -e MYSQL_PASSWORD=rdt_pass -d mysql
 ```
 ## HATEOAS 1.0
 - https://www.baeldung.com/spring-hateoas-tutorial
