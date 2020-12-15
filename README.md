@@ -1,6 +1,7 @@
 ## Next courses, ideas
 - https://courses.in28minutes.com/courses/in28minutes-course-guide/lectures/8919269
 - https://www.udemy.com/course/microservices-ddd/
+- https://codeburst.io/improve-performance-of-java-microservices-with-a-few-actionable-tips-dcacbfb061dc
 - https://opensource.com/article/20/8/kubernetes-raspberry-pi
 
 ## Frameworks for Microservices
