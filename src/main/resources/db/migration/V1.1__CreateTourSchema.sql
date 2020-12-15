@@ -16,15 +16,16 @@ CREATE TABLE tour (
   region VARCHAR(20) NOT NULL,
   keywords VARCHAR(100)
 );
-ALTER TABLE tour ADD FOREIGN KEY (tour_package_code) REFERENCES tour_package(code);
+ALTER TABLE tour ADD CONSTRAINT FK_TOUR_PACKAGE_CODE FOREIGN KEY (tour_package_code) REFERENCES tour_package(code);
 
 
-CREATE TABLE tour_rating (
-    id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    tour_id BIGINT,
-    customer_id BIGINT,
-    score INT,
-    comment VARCHAR(100));
-
-ALTER TABLE tour_rating ADD FOREIGN KEY (tour_id) REFERENCES tour(id);
-ALTER TABLE tour_rating ADD UNIQUE MyConstraint (tour_id, customer_id);
+insert into tour_package (code, name) values
+('BC', 'Backpack Cal'),
+('CC', 'California Calm'),
+('CH', 'California Hot springs'),
+('CY', 'Cycle California'),
+('DS', 'From Desert to Sea'),
+('KC', 'Kids California'),
+('NW', 'Nature Watch'),
+('SC', 'Snowboard Cali'),
+('TC', 'Taste of California');
