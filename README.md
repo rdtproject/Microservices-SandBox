@@ -1,3 +1,19 @@
+## How to run
+- Spring Boot app from command line:  
+java -Dserver.port=9090 -jar target/microsandbox-0.0.1-SNAPSHOT.jar
+- Same from Maven:  
+mvn spring-boot: run -Dspring.profiles.active=mysql -DskipTests=true
+- Swagger: http://localhost:8081/swagger-ui/
+- MailHog: http://192.168.1.2:32778/
+- Jenkins: http://192.168.1.2:8090/
+- Create MySql Docker image: 
+```console
+sudo docker run  --detach   --name microsandbox-mysql -p 6604:3306 -e MYSQL_ROOT_PASSWORD=password
+-e MYSQL_DATABASE=microsandbox -e MYSQL_USER=rdt -e MYSQL_PASSWORD=rdt_pass -d mysql
+```
+- Remove Docker container: sudo docker rm microsandbox-mysql
+- List all running containers: sudo docker ps -a
+
 ## Next courses, ideas
 - https://courses.in28minutes.com/courses/in28minutes-course-guide/lectures/8919269
 - https://www.udemy.com/course/microservices-ddd/
@@ -19,17 +35,7 @@
 ## DevOps topics
 ### How Jacoco code coverage works and what is the correlation with ASM code manipulation framework
 - https://www.baeldung.com/jacoco
-## How to run
-- Spring Boot app from command line: java -Dserver.port=9090 -jar target/microsandbox-0.0.1-SNAPSHOT.jar
-- Swagger: http://localhost:8081/swagger-ui/
-- MailHog: http://192.168.1.2:32778/
-- Jenkins: http://192.168.1.2:8090/
-- Create MySql Docker image: 
-```console
-sudo docker run  --detach   --name microsandbox-mysql -p 6604:3306 -e MYSQL_ROOT_PASSWORD=password
--e MYSQL_DATABASE=microsandbox -e MYSQL_USER=rdt -e MYSQL_PASSWORD=rdt_pass -d mysql
-```
-- Remove Docker container: sudo docker rm microsandbox-mysql
+
 ## HATEOAS 1.0
 - https://www.baeldung.com/spring-hateoas-tutorial
 - https://docs.spring.io/spring-hateoas/docs/current/reference/html/#reference
