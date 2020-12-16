@@ -1,5 +1,3 @@
-SET MODE MYSQL; /* set h2 mode to MySql */
-
 CREATE TABLE tour_package(
   code CHAR(2) NOT NULL UNIQUE,
   name VARCHAR(50) NOT NULL
