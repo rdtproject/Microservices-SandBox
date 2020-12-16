@@ -1,6 +1,8 @@
 ## How to run
-- Spring Boot app from command line: java -Dserver.port=9090 -jar target/microsandbox-0.0.1-SNAPSHOT.jar
-- Same from Maven: mvn spring-boot: run -Dspring.profiles.active=mysql -DskipTests=true
+- Spring Boot app from command line: 
+java -Dserver.port=9090 -jar target/microsandbox-0.0.1-SNAPSHOT.jar
+- Same from Maven: 
+mvn spring-boot: run -Dspring.profiles.active=mysql -DskipTests=true
 - Swagger: http://localhost:8081/swagger-ui/
 - MailHog: http://192.168.1.2:32778/
 - Jenkins: http://192.168.1.2:8090/
