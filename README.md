@@ -16,6 +16,7 @@ sudo docker run  --detach   --name microsandbox-mysql -p 6604:3306 -e MYSQL_ROOT
 - Remove Docker container: sudo docker rm microsandbox-mysql
 
 ## Next courses, ideas
+- https://piotrminkowski.com/2017/03/20/microservices-continuous-delivery-with-docker-and-jenkins/
 - https://courses.in28minutes.com/courses/in28minutes-course-guide/lectures/8919269
 - https://www.udemy.com/course/microservices-ddd/
 - https://codeburst.io/improve-performance-of-java-microservices-with-a-few-actionable-tips-dcacbfb061dc
