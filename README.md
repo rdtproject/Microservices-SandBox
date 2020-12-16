@@ -4,6 +4,8 @@
 - https://codeburst.io/improve-performance-of-java-microservices-with-a-few-actionable-tips-dcacbfb061dc
 - https://opensource.com/article/20/8/kubernetes-raspberry-pi
 
+## Testing
+- https://phauer.com/2019/modern-best-practices-testing-java/
 ## Frameworks for Microservices
 - https://micronaut.io/
 - https://quarkus.io/
