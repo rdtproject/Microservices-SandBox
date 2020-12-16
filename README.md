@@ -11,8 +11,9 @@ mvn spring-boot: run -Dspring.profiles.active=mysql -DskipTests=true
 sudo docker run  --detach   --name microsandbox-mysql -p 6604:3306 -e MYSQL_ROOT_PASSWORD=password
 -e MYSQL_DATABASE=microsandbox -e MYSQL_USER=rdt -e MYSQL_PASSWORD=rdt_pass -d mysql
 ```
-- Remove Docker container: sudo docker rm microsandbox-mysql
 - List all running containers: sudo docker ps -a
+- Stop docker container: sudo docker stop microsandbox-mysql
+- Remove Docker container: sudo docker rm microsandbox-mysql
 
 ## Next courses, ideas
 - https://courses.in28minutes.com/courses/in28minutes-course-guide/lectures/8919269
