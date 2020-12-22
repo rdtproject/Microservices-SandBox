@@ -17,6 +17,7 @@ sudo docker run  --detach   --name microsandbox-mysql -p 6604:3306 -e MYSQL_ROOT
 
 ## The same Docker image used on DEV, Staging and Prod environments
 - https://www.linuxjournal.com/content/sharing-docker-containers-across-devops-environments
+- https://applitools.com/blog/docker-staging-environment/
 
 ## Next courses, ideas
 - https://piotrminkowski.com/2017/03/20/microservices-continuous-delivery-with-docker-and-jenkins/
